@@ -6,12 +6,11 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
 import mum.edu.week1ExtraCredit.domain.Beneficiary;
-import mum.edu.week1ExtraCredit.domain.Person;
 import mum.edu.week1ExtraCredit.domain.Project;
 import mum.edu.week1ExtraCredit.domain.Resource;
-import mum.edu.week1ExtraCredit.domain.Skill;
 import mum.edu.week1ExtraCredit.domain.Task;
 import mum.edu.week1ExtraCredit.domain.User;
+import mum.edu.week1ExtraCredit.domain.Volunteer;
 
 
 
@@ -27,12 +26,11 @@ private static final SessionFactory sessionFactory;
 			
 			Configuration configuration = new Configuration();
 			configuration.addAnnotatedClass(Beneficiary.class);
-			configuration.addAnnotatedClass(Person.class);
 			configuration.addAnnotatedClass(Project.class);
 			configuration.addAnnotatedClass(Resource.class);
-			configuration.addAnnotatedClass(Skill.class);
 			configuration.addAnnotatedClass(Task.class);
 			configuration.addAnnotatedClass(User.class);
+			configuration.addAnnotatedClass(Volunteer.class);
 			configuration.configure();
 			ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
 					.applySettings(configuration.getProperties()).build();

@@ -25,10 +25,10 @@ public class Project {
 	@GeneratedValue
 	private int id;
 	private String description;
-	@Temporal(TemporalType.DATE)
-	private Date startDate;
-	@Temporal(TemporalType.DATE)
-	private Date endDate;
+	//@Temporal(TemporalType.DATE)
+	private String startDate;
+	//@Temporal(TemporalType.DATE)
+	private String endDate;
 	@Enumerated
 	private Status status;
 	@OneToOne
@@ -40,7 +40,32 @@ public class Project {
 	private List<Beneficiary> beneficiaries;
 	@OneToMany(mappedBy="project")
 	private List<Task> tasks;
+	private String projectName;
 	
+	public List<User> getVolunteers() {
+		return volunteers;
+	}
+
+	public void setVolunteers(List<User> volunteers) {
+		this.volunteers = volunteers;
+	}
+
+	public List<Beneficiary> getBeneficiaries() {
+		return beneficiaries;
+	}
+
+	public void setBeneficiaries(List<Beneficiary> beneficiaries) {
+		this.beneficiaries = beneficiaries;
+	}
+
+	public String getProjectName() {
+		return projectName;
+	}
+
+	public void setProjectName(String projectName) {
+		this.projectName = projectName;
+	}
+
 	public Project(){
 		
 	}
@@ -73,31 +98,21 @@ public class Project {
 		this.description = description;
 	}
 
-	/**
-	 * @return the startDate
-	 */
-	public Date getStartDate() {
+	
+
+	public String getStartDate() {
 		return startDate;
 	}
 
-	/**
-	 * @param startDate the startDate to set
-	 */
-	public void setStartDate(Date startDate) {
+	public void setStartDate(String startDate) {
 		this.startDate = startDate;
 	}
 
-	/**
-	 * @return the endDate
-	 */
-	public Date getEndDate() {
+	public String getEndDate() {
 		return endDate;
 	}
 
-	/**
-	 * @param endDate the endDate to set
-	 */
-	public void setEndDate(Date endDate) {
+	public void setEndDate(String endDate) {
 		this.endDate = endDate;
 	}
 
@@ -164,6 +179,8 @@ public class Project {
 		volunteer.setRole(UserRole.VOLUNTEER);
 		volunteers.add(volunteer);
 	}
+
+
 	
 	
 }

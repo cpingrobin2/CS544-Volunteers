@@ -9,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 
 /**
  * @author Chao Ping
@@ -21,36 +20,14 @@ public class User {
 	@GeneratedValue
 	private int id;
 	private String userId;
-	@OneToOne
-	@PrimaryKeyJoinColumn
-	private Person person;
 	@Enumerated
 	private UserRole role;
 	@OneToOne
-	@JoinColumn(name="project")
+	@JoinColumn(name = "project")
 	private Project project;
-	
-	public User(){
-		
-	}
-	
-	public User(Person person){
-		this.person = person;
-	}
 
-	/**
-	 * @return the person
-	 */
-	public Person getPerson() {
-		return person;
-	}
+	public User() {
 
-	/**
-	 * @param person the person to set
-	 */
-	public void setPerson(Person person) {
-		person.setId(id);
-		this.person = person;
 	}
 
 	/**
@@ -61,13 +38,12 @@ public class User {
 	}
 
 	/**
-	 * @param role the role to set
+	 * @param role
+	 *            the role to set
 	 */
 	public void setRole(UserRole role) {
 		this.role = role;
 	}
-	
-	
 
 	/**
 	 * @return the userId
@@ -77,7 +53,8 @@ public class User {
 	}
 
 	/**
-	 * @param userId the userId to set
+	 * @param userId
+	 *            the userId to set
 	 */
 	public void setUserId(String userId) {
 		this.userId = userId;
@@ -91,7 +68,8 @@ public class User {
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
 	public void setId(int id) {
 		this.id = id;
@@ -105,12 +83,11 @@ public class User {
 	}
 
 	/**
-	 * @param project the project to set
+	 * @param project
+	 *            the project to set
 	 */
 	public void setProject(Project project) {
 		this.project = project;
 	}
-	
-		
 
 }

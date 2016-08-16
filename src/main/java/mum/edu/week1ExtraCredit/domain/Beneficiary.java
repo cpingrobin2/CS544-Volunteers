@@ -7,15 +7,16 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
-
+/**
+ * @author Chao Ping
+ *
+ */
 @Entity
 public class Beneficiary {
 	@Id
 	@GeneratedValue
 	private int id;
-	@OneToOne
-	@PrimaryKeyJoinColumn
-	private Person person;
+
 	private String benNum;
 	@ManyToOne
 	@JoinColumn
@@ -24,9 +25,7 @@ public class Beneficiary {
 	public Beneficiary(){
 		
 	}
-	public Beneficiary(Person person){
-		this.person = person;
-	}
+
 	/**
 	 * @return the id
 	 */
@@ -39,19 +38,8 @@ public class Beneficiary {
 	public void setId(int id) {
 		this.id = id;
 	}
-	/**
-	 * @return the person
-	 */
-	public Person getPerson() {
-		return person;
-	}
-	/**
-	 * @param person the person to set
-	 */
-	public void setPerson(Person person) {
-		person.setId(id);
-		this.person = person;
-	}
+
+
 	/**
 	 * @return the benNum
 	 */
